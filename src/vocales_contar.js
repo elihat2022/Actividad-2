@@ -58,10 +58,6 @@ const verificar_contar_vocales = (frase) => {
         <span"En la frase la letra <strong> "i" aparece ${vocales.get("i")} veces </strong> </span>
         <span"En la frase la letra <strong> "o" aparece ${vocales.get("o")} veces </strong> </span>
         <span"En la frase la letra <strong> "u" aparece ${vocales.get("u")} veces </strong> </span>
-
-        
-     
-     
         </div>
     `;
 };
