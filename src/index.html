@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laboratorio 2</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      .main-tabs {
+        gap: 0.5rem;
+        align-items: stretch;
+      }
+
+      .main-tabs [role="tab"] {
+        background-color: #f3f4f6;
+        color: #4b5563;
+        border: 1px solid #e5e7eb;
+        border-radius: 9999px;
+        padding: 0.55rem 1.1rem;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
+        transition:
+          background-color 160ms ease,
+          color 160ms ease,
+          box-shadow 160ms ease,
+          transform 160ms ease,
+          border-color 160ms ease;
+      }
+
+      .main-tabs [role="tab"]:hover {
+        background-color: #e5e7eb;
+        color: #374151;
+        border-color: #d1d5db;
+      }
+
+      .main-tabs [role="tab"]:checked {
+        background-color: #2563eb;
+        color: #ffffff;
+        border-color: #1d4ed8;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        transform: translateY(-1px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-base-200 min-h-screen flex flex-col items-center justify-center p-4"
+  >
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold">Tecnologías JavaScript y AJAX</h1>
+    </div>
+
+    <div
+      role="tablist"
+      class="tabs tabs-lifted w-full max-w-2xl mt-4 main-tabs"
+    >
+      <input
+        type="radio"
+        name="main_tabs"
+        role="tab"
+        class="tab font-semibold whitespace-nowrap checked:bg-primary checked:text-white"
+        aria-label="Palíndromo"
+        checked="checked"
+      />
+      <div
+        role="tabpanel"
+        class="tab-content bg-base-100 border-base-300 rounded-box p-6 shadow-xl mt-2"
+      >
+        <h2 class="card-title justify-center text-2xl mb-4">Palíndromo</h2>
+        <form id="formulario" class="flex flex-col gap-4">
+          <div class="form-control w-full">
+            <label class="label" for="input_palabra">
+              <span class="label-text">Ingrese la palabra a verificar</span>
+            </label>
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              id="input_palabra"
+              placeholder="Ejemplo: 'reconocer'"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            Comprobar
+          </button>
+        </form>
+        <div id="mensajeResultado" class="mt-4"></div>
+      </div>
+
+      <input
+        type="radio"
+        name="main_tabs"
+        role="tab"
+        class="tab font-semibold whitespace-nowrap checked:bg-primary checked:text-white"
+        aria-label="Número Mayor"
+      />
+      <div
+        role="tabpanel"
+        class="tab-content bg-base-100 border-base-300 rounded-box p-6 shadow-xl mt-2"
+      >
+        <h2 class="card-title justify-center text-2xl mb-4">Numero Mayor</h2>
+        <form id="formulario_numero_mayor" class="flex flex-col gap-4">
+          <div class="form-control w-full">
+            <label class="label" for="input_numero_1">
+              <span class="label-text">Ingrese un número</span>
+            </label>
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              id="input_numero_1"
+              placeholder="Ejemplo: '123'"
+              required
+            />
+
+            <label class="label" for="input_numero_2">
+              <span class="label-text">Ingrese un segundo número</span>
+            </label>
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              id="input_numero_2"
+              placeholder="Ejemplo: '123'"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            Comprobar
+          </button>
+        </form>
+        <div id="mensajeResultado_2" class="mt-4"></div>
+      </div>
+
+      <input
+        type="radio"
+        name="main_tabs"
+        role="tab"
+        class="tab font-semibold whitespace-nowrap checked:bg-primary checked:text-white"
+        aria-label="Vocales"
+      />
+      <div
+        role="tabpanel"
+        class="tab-content bg-base-100 border-base-300 rounded-box p-6 shadow-xl mt-2"
+      >
+        <h2 class="card-title justify-center text-2xl mb-4">
+          Vocales en el texto
+        </h2>
+        <form id="formulario_vocales" class="flex flex-col gap-4">
+          <div class="form-control w-full">
+            <label class="label" for="input_frase">
+              <span class="label-text">Ingrese una frase</span>
+            </label>
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              id="input_frase"
+              placeholder="Ejemplo: 'Hola Mundo'"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            Comprobar
+          </button>
+        </form>
+        <div id="mensajeResultado_3" class="mt-4"></div>
+      </div>
+
+      <input
+        type="radio"
+        name="main_tabs"
+        role="tab"
+        class="tab font-semibold whitespace-nowrap checked:bg-primary checked:text-white"
+        aria-label="Contar Vocales"
+      />
+      <div
+        role="tabpanel"
+        class="tab-content bg-base-100 border-base-300 rounded-box p-6 shadow-xl mt-2"
+      >
+        <h2 class="card-title justify-center text-2xl mb-4">
+          Contar Vocales en el texto
+        </h2>
+        <form id="formulario_contar_vocales" class="flex flex-col gap-4">
+          <div class="form-control w-full">
+            <label class="label" for="input_frase_contar">
+              <span class="label-text"
+                >Ingrese una frase para contar vocales</span
+              >
+            </label>
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              id="input_frase_contar"
+              placeholder="Ejemplo: 'Hola Mundo'"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            Comprobar
+          </button>
+        </form>
+        <div id="mensajeResultado_4" class="mt-4"></div>
+      </div>
+    </div>
+
+    <div
+      class="container bg-base-100 border-base-300 rounded-box p-6 shadow-xl mt-6 w-full max-w-2xl"
+    >
+      <h2 class="card-title justify-center text-2xl mb-4">
+        Cliente AJAX Interactivo
+      </h2>
+      <form id="formulario_url" class="flex flex-col gap-4">
+        <div class="form-control w-full">
+          <label class="label" for="input_url">
+            <span class="label-text">Ingrese una URL</span>
+          </label>
+          <input
+            type="text"
+            class="input input-bordered w-full"
+            id="input_url"
+            placeholder="Ejemplo: 'https://www.ejemplo.com'"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-full">
+          Mostrar Contenidos
+        </button>
+      </form>
+      <div id="mensajeResultado_ajax" class="mt-4 text-sm"></div>
+    </div>
+    <div class="mt-4 w-full max-w-2xl grid gap-4">
+      <div class="card bg-base-100 border border-base-300 rounded-box p-4">
+        <h3 class="font-semibold">1. Estado de la petición</h3>
+        <pre id="zonaEstados" class="mt-2 text-sm whitespace-pre-wrap overflow-auto">
+          No iniciada
+        </pre>
+      </div>
+
+      <div class="card bg-base-100 border border-base-300 rounded-box p-4">
+        <h3 class="font-semibold">2. Cabeceras HTTP de la respuesta</h3>
+        <pre id="zonaCabeceras" class="mt-2 text-sm whitespace-pre-wrap overflow-auto"></pre>
+      </div>
+
+      <div class="card bg-base-100 border border-base-300 rounded-box p-4">
+        <h3 class="font-semibold">3. Código de estado</h3>
+        <pre id="zonaCodigo" class="mt-2 text-sm whitespace-pre-wrap overflow-auto"></pre>
+      </div>
+
+      <div class="card bg-base-100 border border-base-300 rounded-box p-4">
+        <h3 class="font-semibold">4. Contenidos</h3>
+        <pre id="zonaContenidos" class="mt-2 text-sm whitespace-pre-wrap overflow-auto max-h-96"></pre>
+      </div>
+    </div>
+
+    <script src="palindromo.js"></script>
+    <script src="numero_mayor.js"></script>
+    <script src="vocales.js"></script>
+    <script src="vocales_contar.js"></script>
+    <script src="ajax.js"></script>
+  </body>
+</html>
